@@ -7,7 +7,7 @@ simple url validator for Deno.
 import {
   UrlValidater,
   HttpsValidateStrategy,
-} from "https://deno.land/x/url-validator/mod.ts";
+} from "https://deno.land/x/url_validator/mod.ts";
 
 const url: string = "https://deno.land/";
 let urlValidator = new UrlValidater(url, new HttpsValidateStrategy());
