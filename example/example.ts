@@ -1,8 +1,8 @@
 import {
   UrlValidater,
-  HttpsValidate,
+  HttpsValidateStrategy,
 } from "https://deno.land/x/url-validator/mod.ts";
 
 const url: string = "https://deno.land/";
-let urlValidator = new UrlValidater(url, new HttpsValidate());
+let urlValidator = new UrlValidater(url, new HttpsValidateStrategy());
 urlValidator.validate(); // true

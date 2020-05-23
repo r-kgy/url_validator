@@ -1,6 +1,6 @@
 export {
   UrlValidater,
-  HttpsValidate,
-  HttpValidate,
-  RFC3986Validate,
+  HttpsValidateStrategy,
+  HttpValidateStrategy,
+  RFC3986ValidateStrategy,
 } from "./src/url_validator.ts";
