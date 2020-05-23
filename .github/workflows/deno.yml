@@ -1,32 +1,19 @@
+name: CI
 on: [push, pull_request]
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  test:
     strategy:
       matrix:
-        deno: [0.32.0, 0.31.0, 0.30.0]
-    name: Test with Deno ${{ matrix.deno }} 
-
+        deno: ['v1.0.1']
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@master
-
+      - uses: actions/checkout@v2
       - name: Setup Deno
         uses: denolib/setup-deno@master
         with:
           deno-version: ${{ matrix.deno }}
-
-      - name: Setup Node
-        uses: actions/setup-node@master
-        with:
-          node-version: 12
-
-      - name: Print deno version
-        run: deno --version
-
-      - name: Check format
-        run: deno fmt --check **/*.ts
-
       - name: Run tests
-        run: deno test.ts
+        run: deno test --allow-run
+        env:
+          VR_SHELL: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
