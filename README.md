@@ -1,4 +1,4 @@
-# url_validator
+# url_validator(beta)
 simple url validator for Deno.
 
 
